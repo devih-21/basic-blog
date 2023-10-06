@@ -9,10 +9,17 @@ from sqlalchemy.sql import func
 from pydantic import BaseModel, Field
 from typing import Optional
 from uuid import UUID, uuid4
+import uvicorn
+import threading
+import time
+from multiprocessing import Process
+
+
 
 origins = [
   "http://localhost",
   "http://localhost:3000",
+  "https://beta.reelsights.com",
   "http://localhost:8000"
 ]
 
@@ -94,4 +101,12 @@ def delete_blog(id, db: Session = Depends(get_db)):
     blog.delete(synchronize_session=False)
     db.commit()
     return f'Blog with id {id} is deleted successfully'
+  
+def run_app():
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
+
+  
+if __name__ == '__main__':
+    process = Process(target=run_app)
+    process.start()
