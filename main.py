@@ -20,7 +20,13 @@ origins = [
   "http://localhost",
   "http://localhost:3000",
   "https://beta.reelsights.com",
-  "http://localhost:8000"
+  "https://beta.reelsights.com/blog",
+"https://reelsights.com",
+"https://reelsightsai.com",
+  "https://reelsightsau.com/blog",
+  "https://reelsights.com/blog",
+ 
+ "http://localhost:8000"
 ]
 
 
